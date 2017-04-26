@@ -7,11 +7,4 @@ export class Entity{
   end:number;
   value:string;
   entity:string;
-
-  // constructor(start:number,end:number,value:string,entity:string){
-  //   this.start=start;
-  //   this.end=end;
-  //   this.value=value;
-  //   this.entity=entity;
-  // }
 }

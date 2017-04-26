@@ -38,7 +38,7 @@
             <label>{{entity.value}}</label>
           </div>
           <div class="col-sm-6">
-            <app-entity-selector #sel (click)="ententeChanged($event.target.value,entity)"></app-entity-selector>
+            <app-entity-selector #sel (click)="ententeChanged($event.target.value,entity._id)"></app-entity-selector>
           </div>
 
         </div>
@@ -46,7 +46,7 @@
       </div>
 
       <div class="row">
-        <button type="button" class="btn btn-success btn-lg"><span class="fa fa-check"></span>  Validate</button>
+        <button type="button" class="btn btn-success btn-lg" (click)="validateData()"><span class="fa fa-check"></span>  Validate</button>
 
       </div>
 

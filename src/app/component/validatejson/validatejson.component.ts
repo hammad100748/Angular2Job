@@ -11,24 +11,22 @@ import {Entity} from "../../Entity";
 
 export class ValidatejsonComponent implements OnInit {
 
-
-  entityObj:Entity[];
   intent='';
-  entent='';
   _text='';
   entities=[];
-  temData=[];
 
   constructor(private _jsonFileHandleService: JsonFileHandleService) {
+
   }
 
 
   ngOnInit() {
     this._text=this._jsonFileHandleService.getText();
+
   }
 
   selectedText: string = '';
-
+  _id:number=0;
   showSelectedText() {
     var text = "";
     if (window.getSelection) {
@@ -36,35 +34,42 @@ export class ValidatejsonComponent implements OnInit {
     }
 
     if(text!='') {
-
       this.selectedText=text.replace(/^\s+|\s+$/g, '');;
-
       var startIndex=this._text.indexOf(this.selectedText);
       var length=this.selectedText.length;
       var endIndex=startIndex+length;
 
       var entry={
+        '_id':this._id++,
         'start':startIndex,
         'end':endIndex,
         'value':this.selectedText,
         'entity':'object_to_search'
       };
-
       this.entities.push(entry);
+
     }
   }
 
 
   removeEntity(ent:Entity){
-
     var index=this.entities.indexOf(ent);
     if (index !== -1) {
       this.entities.splice(index, 1);
     }
   }
 
-  ententeChanged(evnt:string,ent:Entity){
+  ententeChanged(evnt:string,id:number){
+    for (var i = 0; i < this.entities.length; i++) {
+      if (this.entities[i]._id === id) {
+        this.entities[i].entity = evnt;
+        break;
+      }
+    }
+  }
 
+  validateData(){
+    this._jsonFileHandleService.saveJson({entities:this.entities,intent:this.intent,_text:this._text});
   }
 
 }

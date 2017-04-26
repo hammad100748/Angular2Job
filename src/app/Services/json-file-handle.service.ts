@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
+import {Http} from '@angular/http';
+import {Entity} from "../Entity";
+
 
 @Injectable()
 export class JsonFileHandleService {
+  json_in:Entity;
   file={
     "entities": [
       {
@@ -32,8 +36,13 @@ export class JsonFileHandleService {
     "intent": "file_search",
     "_text": "get started pdf in google drive last week"
   };
-  constructor() {
 
+  constructor(private _http:Http) {
+
+  }
+
+  getJsonFile(){
+    return this._http.get('https://api.myjson.com/bins/1ehzh7');
   }
 
   getIntent(){
@@ -44,11 +53,12 @@ export class JsonFileHandleService {
     return this.file._text;
   }
 
-}
+  saveJson(entities:any){
 
-interface EntitiesInterface{
-  start?:number;
-  end?:number;
-  value?:string;
-  entity?:string;
+    var json_out=JSON.stringify(entities);
+
+    // Final json
+    console.log(json_out);
+  }
+
 }
