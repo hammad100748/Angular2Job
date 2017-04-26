@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+.c_margin{
+  margin: 100px 50px;
+}
+.c_margin1{
+  border: 1px solid black;
+  padding: 20px;
+}
+.c_pad select{
+  padding: 10px 30px;
+}
+.c_pad1 {
+  padding: 10px 25px;
+  width: 100%;
+}

@@ -1,0 +1,8 @@
+<div>
+  <select #sel (change)="select.emit(sel.value)">
+    <option *ngFor="let intent of intents">
+      {{intent}}
+    </option>
+  </select>
+</div>
+

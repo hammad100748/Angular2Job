@@ -1,0 +1,8 @@
+<div>
+  <select #sel (change)="select.emit(sel.value)">
+    <option *ngFor="let entity of entities">
+      {{entity}}
+    </option>
+  </select>
+</div>
+
