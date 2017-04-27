@@ -5,7 +5,7 @@ import {Entity} from "../Entity";
 
 @Injectable()
 export class JsonFileHandleService {
-  json_in:Entity;
+
   file={
     "entities": [
       {
@@ -41,16 +41,16 @@ export class JsonFileHandleService {
 
   }
 
-  getJsonFile(){
-    return this._http.get('https://api.myjson.com/bins/1ehzh7');
-  }
-
   getIntent(){
     return this.file.intent;
   }
 
   getText(){
     return this.file._text;
+  }
+
+  getEntities(){
+    return this.file.entities;
   }
 
   saveJson(entities:any){

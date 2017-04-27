@@ -14,6 +14,9 @@ export class ValidatejsonComponent implements OnInit {
   intent='';
   _text='';
   entities=[];
+  inputEntities=[];
+  selectedText: string = '';
+  _id:number=0;
 
   constructor(private _jsonFileHandleService: JsonFileHandleService) {
 
@@ -22,11 +25,12 @@ export class ValidatejsonComponent implements OnInit {
 
   ngOnInit() {
     this._text=this._jsonFileHandleService.getText();
+    this.entities=this._jsonFileHandleService.getEntities();
 
+    console.log(this.inputEntities);
   }
 
-  selectedText: string = '';
-  _id:number=0;
+
   showSelectedText() {
     var text = "";
     if (window.getSelection) {
