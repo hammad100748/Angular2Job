@@ -3,13 +3,26 @@
   margin: 100px 50px;
 }
 .c_margin1{
-  border: 1px solid black;
+  border: 1px solid #9b9b9b;
   padding: 20px;
+  box-shadow: 1px 1px 2px 2px #888888;
 }
 .c_pad select{
   padding: 10px 30px;
+  width: 100%;
 }
 .c_pad1 {
   padding: 10px 25px;
   width: 100%;
+}
+.i_pad{
+  background-color: white !important;
+  padding: 5px 5px;
+}
+.bt_margin{
+  margin-left: 13%;
+
+}
+.bt_margin button{
+  padding: 6px 20px;
 }

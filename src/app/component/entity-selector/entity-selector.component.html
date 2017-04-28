@@ -1,5 +1,5 @@
 <div>
-  <select #sel (change)="select.emit(sel.value)">
+  <select #sel (change)="select.emit(sel.value)" style="padding: 5px; width: 100%">
     <option *ngFor="let entity of entities">
       {{entity}}
     </option>
